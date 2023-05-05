@@ -6,6 +6,7 @@ const SongsList = ({ songs, getSongs, showSuccessNotf, showFailNotf, setIsLoadin
 
     const deleteSong = id => {
         setIsLoading(true);
+        // endpoint DELETE -> /songs/:id
         axios.delete(`https://songs-crud.fly.dev/api/v1/songs/${id}`)
             .then(() => {
                 getSongs();

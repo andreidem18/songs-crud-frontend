@@ -17,6 +17,7 @@ const SongsForm = ({ getSongs, showSuccessNotf, showFailNotf, setIsLoading, song
     const submit = (data) => {
         setIsLoading(true);
         if (songSelected) {
+            // endpoint PUT -> /songs/:id
             axios.put(`https://songs-crud.fly.dev/api/v1/songs/${songSelected.id}`, data)
                 .then(() => {
                     getSongs();
@@ -26,6 +27,7 @@ const SongsForm = ({ getSongs, showSuccessNotf, showFailNotf, setIsLoading, song
                 .catch(() => showFailNotf())
                 .finally(() => setIsLoading(false))
         } else {
+            // endpoint POST -> /songs
             axios.post('https://songs-crud.fly.dev/api/v1/songs', data)
                 .then(() => {
                     getSongs()

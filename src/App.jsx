@@ -18,6 +18,7 @@ function App() {
   }, []);
 
   const getSongs = () => {
+    // endpoint GET -> /songs
     axios.get('https://songs-crud.fly.dev/api/v1/songs')
       .then(res => setSongs(res.data))
       .finally(() => setIsLoading(false));
