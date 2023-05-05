@@ -31,15 +31,13 @@ const SongsList = ({ songs, getSongs, showSuccessNotf, showFailNotf, setIsLoadin
                 <tbody>   
                 {
                     songs.map(song => {
-                        const releaseDate = new Date(song.releaseDate)
-                            .toLocaleDateString('en-us', {day: 'numeric', month: 'long', year: 'numeric'})
 
                         return (
                             <tr key={song.id}>
                                 <td>{song.name}</td>
                                 <td>{song.artist}</td>
                                 <td>{song.genre}</td>
-                                <td>{releaseDate}</td>
+                                <td>{song.releaseYear}</td>
                                 <td>
                                     <Button 
                                         variant='danger'
